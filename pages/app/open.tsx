@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client";
+import Link from "next/link";
 
 import client from "../../apollo-client";
 
@@ -7,6 +8,12 @@ import client from "../../apollo-client";
 const Open = ({ countries }) => {
   return (
     <div >
+        <Link href="/">
+        <a>Go Home</a>
+        </Link>
+        <Link href="/app/open">
+        <a>Open Dashboard</a>
+        </Link>
       {countries.map((country) => (
         <div key={country.code} >
           <h3>{country.name}</h3>
