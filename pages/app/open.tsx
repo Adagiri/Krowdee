@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import client from "../../apollo-client";
 
 
-const Dashboard = ({ countries }) => {
+const Open = ({ countries }) => {
   return (
     <div >
       {countries.map((country) => (
@@ -19,7 +19,7 @@ const Dashboard = ({ countries }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`
       query Countries {
@@ -34,9 +34,9 @@ export async function getStaticProps() {
 
   return {
     props: {
-      countries: data.countries.slice(0, 5),
+      countries: data.countries.slice(0, 4),
     },
   };
 }
 
-export default Dashboard;
+export default Open;
