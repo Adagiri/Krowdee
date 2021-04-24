@@ -129,6 +129,7 @@ export default function Home() {
               </Box>
             </Box>
           </MotionBox>
+          
         </Center>
         <Box h="8vh" d="flex" alignItems="center" py={{ base: 0, sm: 2 }}>
           <Box display="flex" alignItems="center" href="/">
