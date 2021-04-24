@@ -8,11 +8,8 @@ import client from "../../apollo-client";
 const Open = ({ countries }) => {
   return (
     <div >
-        <Link href="/">
-        <a>Go Home</a>
-        </Link>
-        <Link href="/app/open">
-        <a>Open Dashboard</a>
+        <Link href="/app/">
+        <a>Go Dashboard</a>
         </Link>
       {countries.map((country) => (
         <div key={country.code} >
