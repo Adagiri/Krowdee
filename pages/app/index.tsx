@@ -1,45 +1,55 @@
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client";
+import { Avatar } from "@chakra-ui/avatar";
 import Link from "next/link";
 
 import client from "../../apollo-client";
 
-
-const Dashboard = ({ countries }) => {
+const Dashboard = ({ user}) => {
+console.log("user",user)
   return (
-    <div >
-      
+    <div>
+      <Link href="/client">
+        <a>Go client</a>
+      </Link>
+      <div>
         <Link href="/app/open">
-        <a>Go open</a>
+          <a>Go Open</a>
         </Link>
-      {countries.map((country) => (
-        <div key={country.code} >
-          <h3>{country.name}</h3>
-          <p>
-            {country.code} - {country.emoji}
-          </p>
+      </div>
+      <p>I am {user.name} and below are my contests</p>
+    <Avatar src={user.avatar} />
+      {/* {user.contests.map((contest) => (
+        <div key={contest._id}>
+          <h3>{contest.name}</h3>
+          <p>created on {contest.crat}</p>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
 
-export async function getStaticProps() {
-  const { data } = await client.query({
+export async function getServerSideProps() {
+  const { data, error } = await client.query({
     query: gql`
-      query Countries {
-        countries {
-          code
+      query FetchUser {
+        fetchUser {
           name
-          emoji
+          avatar
+          contests {
+            name
+            crat
+            _id
+          }
         }
       }
     `,
   });
-
+console.log(data, error)
   return {
     props: {
-      countries: data.countries.slice(0, 5),
+   
+      user: data.fetchUser,
     },
   };
 }

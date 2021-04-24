@@ -1,8 +1,16 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { getCookie } from "./operations/utils/index";
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
 const client = new ApolloClient({
-    uri: "https://countries.trevorblades.com",
-    cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: "http://localhost:5000",
+    headers: {
+      Authorization: `Bearer ${getCookie("jwt")}`,
+    },
+    fetch,
+  }),
+
+  cache: new InMemoryCache(),
 });
 
 export default client;

@@ -4,13 +4,12 @@ import Home from "../pages/index";
 
 
 const token = getCookie("jwt");
-const isBrowser = typeof window !== "undefined";
 
 const withAuth = (Component) => {
   const Auth = () => {
 
     // if token exists, return component
-    if (isBrowser && token) {
+    if (token) {
       return <Component />;
     }
 
