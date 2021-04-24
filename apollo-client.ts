@@ -9,7 +9,7 @@ function client() {
   let token;
 
   const httpLink = createHttpLink({
-    uri: "http://localhost:5000",
+    uri: "https://grandpexel.com",
   });
 
   const authLink = setContext((_, { headers }) => {
