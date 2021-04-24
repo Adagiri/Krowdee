@@ -24,7 +24,7 @@ const Open = ({ countries }) => {
 };
 
 export async function getServerSideProps() {
-  const { data } = await client.query({
+  const { data } = await client().query({
     query: gql`
       query Countries {
         countries {

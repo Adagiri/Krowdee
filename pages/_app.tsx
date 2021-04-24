@@ -8,7 +8,7 @@ import client from "../apollo-client";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={client()}>
       <ChakraProvider theme={theme}>
         <AnimatePresence>
           <Component {...pageProps} />

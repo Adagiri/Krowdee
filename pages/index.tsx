@@ -118,9 +118,11 @@ export default function Home() {
                   By logging in you accept our
                 </Text>
                 <Text fontWeight="bold">
-                  <Button variant="link" fontSize="14px">
-                    Privacy policy{" "}
-                  </Button>
+                  <Link href="/app">
+                    <Button as="a" variant="link" cursor="pointer" fontSize="14px">
+                      Privacy policy{" "}
+                    </Button>
+                  </Link>
                   {""} and{" "}
                   <Button variant="link" fontSize="14px">
                     Terms of service.
@@ -129,7 +131,6 @@ export default function Home() {
               </Box>
             </Box>
           </MotionBox>
-          
         </Center>
         <Box h="8vh" d="flex" alignItems="center" py={{ base: 0, sm: 2 }}>
           <Box display="flex" alignItems="center" href="/">
