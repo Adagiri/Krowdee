@@ -1,6 +1,5 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import Cookies from "js-cookie";
 import { getCookie } from "./operations/utils";
 
 
@@ -9,7 +8,7 @@ function client() {
   let token;
 
   const httpLink = createHttpLink({
-    uri: "https://grandpexel.com",
+    uri: "http://localhost:5000",
   });
 
   const authLink = setContext((_, { headers }) => {
