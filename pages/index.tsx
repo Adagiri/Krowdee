@@ -119,7 +119,12 @@ export default function Home() {
                 </Text>
                 <Text fontWeight="bold">
                   <Link href="/app">
-                    <Button as="a" variant="link" cursor="pointer" fontSize="14px">
+                    <Button
+                      as="a"
+                      variant="link"
+                      cursor="pointer"
+                      fontSize="14px"
+                    >
                       Privacy policy{" "}
                     </Button>
                   </Link>
