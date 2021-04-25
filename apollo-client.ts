@@ -13,20 +13,17 @@ function client() {
 
   const authLink = setContext((_, { headers }) => {
     // get the authentication token from local storage if it exists
-    if (typeof window !== "undefined") {
-      token = getCookie("jwt");
-    }
+
     // return the headers to the context so httpLink can read them
     return {
       headers: {
         ...headers,
-        Authorization: token ? `Bearer ${token}` : "",
+        Authorization: `Bearer ${getCookie("jwt")}` 
       },
     };
   });
 
   const client = new ApolloClient({
-    ssrMode: false,
     link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
   });
