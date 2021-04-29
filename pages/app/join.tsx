@@ -5,11 +5,8 @@ import { Button, IconButton } from "@chakra-ui/button";
 import { Input } from "@chakra-ui/input";
 import { Image } from "@chakra-ui/image";
 import Head from "next/head";
-import withAuth from "../../components/authWrapper";
-import { useRouter } from "next/router";
 
 const Join = () => {
-
   return (
     <div>
       <Head>
@@ -69,4 +66,4 @@ const Join = () => {
   );
 };
 
-export default withAuth(Join);
+export default Join;
