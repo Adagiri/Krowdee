@@ -27,8 +27,10 @@ export default function Home() {
       <Head>
         <title>Krowdee | Welcome</title>
       </Head>
-      <Container maxW={{ base: "340px", sm: "container.lg" }}>
-        <ThemeToggle />
+      <Container maxW={{ base: "370px", sm: "container.lg" }}>
+        <Box textAlign="right" pt={{ base: "4", sm: "3" }}>
+          <ThemeToggle />
+        </Box>
         <Center height="85vh">
           <MotionBox
             initial={{ opacity: 0 }}
@@ -53,7 +55,7 @@ export default function Home() {
               Welcome to Krowdee!
             </Heading>
             <Text fontSize="15px" mt="1" fontWeight="bold">
-              Taking learning platform to the moon.
+              Taking learning platform to the moon 🚀.
             </Text>
 
             <Box mt={{ base: 6, sm: 8 }} w={{ base: "330px", sm: "380px" }}>
@@ -119,7 +121,12 @@ export default function Home() {
                 </Text>
                 <Text fontWeight="bold">
                   <Link href="/app">
-                    <Button as="a" variant="link" cursor="pointer" fontSize="14px">
+                    <Button
+                      as="a"
+                      variant="link"
+                      cursor="pointer"
+                      fontSize="14px"
+                    >
                       Privacy policy{" "}
                     </Button>
                   </Link>

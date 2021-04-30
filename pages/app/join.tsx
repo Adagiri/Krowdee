@@ -9,14 +9,15 @@ import withAuth from "../../components/authWrapper";
 import { useRouter } from "next/router";
 
 const Join = () => {
-
   return (
     <div>
       <Head>
         <title>Join | Krowdee </title>
       </Head>
       <Container maxW={{ base: "340px", sm: "container.lg" }}>
-        <ThemeToggle />
+        <Box textAlign="right" pt={{ base: "4", sm: "3" }}>
+          <ThemeToggle />
+        </Box>
         <Center height="83vh" width="100%">
           <MotionBox
             initial={{ opacity: 0 }}

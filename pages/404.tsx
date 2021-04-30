@@ -1,10 +1,10 @@
-import { Box, Center, Container, Heading, Text } from "@chakra-ui/layout"
+import { Box, Center, Container, Heading, Text } from "@chakra-ui/layout";
 import Head from "next/head";
-import { Image } from "@chakra-ui/image"
-import { Button } from "@chakra-ui/button"
-import Link from "next/link"
+import { Image } from "@chakra-ui/image";
+import { Button } from "@chakra-ui/button";
+import Link from "next/link";
 
-import MotionBox from "../components/MotionBox"
+import MotionBox from "../components/MotionBox";
 
 const ErrorPage: React.FC = () => {
   return (
@@ -30,13 +30,15 @@ const ErrorPage: React.FC = () => {
           >
             <Box textAlign="center">
               <Box m="0 auto" w="150px" mb={5}>
-                <Image src="/images/krowdee-logo.svg" alt="Sad Svg" />
+                <Image src="/images/sad.svg" alt="Sad Svg" />
               </Box>
               <Heading fontSize="30px">Page not Found!!!</Heading>
               <Text>Lost in space??</Text>
               <Box mt={3}>
                 <Button size="sm" variant="solid" colorScheme="brand">
-                  <Link href="/"><a>Take me home</a></Link>
+                  <Link href="/">
+                    <a>Take me home</a>
+                  </Link>
                 </Button>
               </Box>
             </Box>
@@ -44,7 +46,7 @@ const ErrorPage: React.FC = () => {
         </Center>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

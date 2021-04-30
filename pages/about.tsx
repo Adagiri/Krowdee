@@ -11,19 +11,19 @@ export const siteTitle = "Next.js Sample Website";
 
 export default function Layout() {
   return (
-    <div>
+    <Box>
       <Head>
         <title>About | Krowdee! </title>
       </Head>
-      <Container maxW={{ base: "340px", sm: "container.lg" }}>
-        <ThemeToggle />
-
-
+      <Container maxW={{ base: "370px", sm: "container.lg" }}>
+        <Box textAlign="right" pt={{ base: "4", sm: "3" }}>
+          <ThemeToggle />
+        </Box>
         <MotionBox
           mt={8}
           initial={{ opacity: 0 }}
           animate={{
-            transform: "translateY(8px)",
+            x: 8,
             opacity: 1,
           }}
           transition={{
@@ -33,8 +33,8 @@ export default function Layout() {
             bounce: 0.25,
           }}
         >
-          <Heading>About Krowdee!!</Heading>
-          <Text mt={2}>
+          <Heading fontSize={{ base: "28px" }}>About Krowdee!!</Heading>
+          <Text mt={2} fontSize={{ base: "15.5px" }}>
             <chakra.span color="cyan.700" fontWeight="bold">
               Krowdee!
             </chakra.span>{" "}
@@ -42,7 +42,7 @@ export default function Layout() {
             everyone, including children, students, and employees, to unlock
             their full learning potential.
           </Text>
-          <Text mt={2}>
+          <Text mt={2} fontSize={{ base: "15.5px" }}>
             Our learning platform makes it easy for any individual or
             corporation to create, share, and play learning contest which can be
             either{" "}
@@ -52,8 +52,8 @@ export default function Layout() {
           </Text>
 
           <Box mt={8}>
-            <Heading>Krowdee Team</Heading>
-            <Text mt={2}>
+            <Heading fontSize={{ base: "28px" }}>Krowdee Team</Heading>
+            <Text mt={2} fontSize={{ base: "15.5px" }}>
               The Amazing Team consist of two engineerers who has contributed
               time, effort, and thought to{" "}
               <chakra.span color="cyan.700" fontWeight="bold">
@@ -66,7 +66,7 @@ export default function Layout() {
                 </Link>
               </chakra.span>{" "}
             </Text>
-            <Text mt={2}>
+            <Text mt={2} fontSize={{ base: "15.5px" }}>
               <chakra.span color="cyan.700" fontWeight="bold">
                 Krowdee!
               </chakra.span>{" "}
@@ -82,6 +82,6 @@ export default function Layout() {
           </Box>
         </MotionBox>
       </Container>
-    </div>
+    </Box>
   );
 }

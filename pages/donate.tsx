@@ -14,9 +14,10 @@ export default function Donate() {
       <Head>
         <title>Donate | Krowdee! </title>
       </Head>
-      <Container maxW={{ base: "340px", sm: "container.lg" }}>
-        <ThemeToggle />
-      
+      <Container maxW={{ base: "370px", sm: "container.lg" }}>
+        <Box textAlign="right" pt={{ base: "4", sm: "3" }}>
+          <ThemeToggle />
+        </Box>
         <Center
           height={{ base: "85vh", sm: "75vh" }}
           p={{ base: 0, sm: 3 }}
