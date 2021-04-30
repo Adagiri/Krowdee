@@ -15,7 +15,7 @@ const Dashboard = () => {
   const { name, avatar, contests } = data.fetchUser;
   return (
     <div>
-      <Link href="/"><a>Home</a></Link>
+      {/* <Link href="/"><a>Home</a></Link>
       <p>I am {name} and below are my contests</p>
       <Avatar src={avatar} />
       {contests &&
@@ -32,7 +32,8 @@ const Dashboard = () => {
               );
             })}
           </div>
-        ))}
+        ))} */}
+        {JSON.stringify(data, null, 1)}
     </div>
   );
 };

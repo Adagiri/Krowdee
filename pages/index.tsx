@@ -67,7 +67,7 @@ export default function Home() {
                   <Button
                     as="a"
                     height="50px"
-                    href={`${process.env.API_URL}/github`}
+                    href="http://localhost:5000/auth/github"
                     borderRadius="10px"
                     width={{ base: "280px", sm: "180px" }}
                     leftIcon={<SiGithub size="18px" />}
@@ -78,7 +78,7 @@ export default function Home() {
                 <Box>
                   <Button
                     as="a"
-                    href={`${process.env.API_URL}/facebook`}
+                    href="http://localhost:5000/auth/facebook"
                     height="50px"
                     borderRadius="10px"
                     width={{ base: "280px", sm: "180px" }}
@@ -92,7 +92,7 @@ export default function Home() {
                   <Button
                     as="a"
                     height="50px"
-                    href={`${process.env.API_URL}/twitter`}
+                    href="http://localhost:5000/auth/twitter"
                     borderRadius="10px"
                     width={{ base: "280px", sm: "180px" }}
                     leftIcon={<SiTwitter size="18px" />}
@@ -105,7 +105,7 @@ export default function Home() {
                   <Button
                     height="50px"
                     as="a"
-                    href={`${process.env.API_URL}/google`}
+                    href="http://localhost:5000/auth/google"
                     borderRadius="10px"
                     width={{ base: "280px", sm: "180px" }}
                     leftIcon={<SiGoogle size="18px" />}
