@@ -26,7 +26,7 @@ export default function Donate() {
           <MotionBox
             initial={{ opacity: 0 }}
             animate={{
-              transform: "translateY(10px)",
+              y: 10,
               opacity: 1,
             }}
             transition={{
