@@ -35,8 +35,8 @@ const host = () => {
             <Heading>Prep Time</Heading>
             <Text>Host: AbdulAzeez</Text>
 
-            <Grid templateColumns="repeat(12, 1fr)" gap={3} mt={3}>
-              <GridItem colSpan={{ base: 12, sm: 6 }}>
+            <Grid templateColumns="repeat(12, 1fr)" gap={3} mt={5}>
+              <GridItem colSpan={{ base: 12, sm: 6 }} height="100%">
                 <SimpleGrid columns={2} spacing={3}>
                   <Box>
                     <CustomDrawer
@@ -87,9 +87,9 @@ const host = () => {
                     </Portal>
                   </Popover>
                 </Box>
-                <Box textAlign="center">
-                  <Text>Starts in </Text>
-                  <Heading>29:45</Heading>
+                <Box textAlign="center" mt={{ base: 3, sm: 60 }}>
+                  <Text fontSize="20px">Starts in </Text>
+                  <Heading fontSize="40px">29:45</Heading>
                 </Box>
               </GridItem>
               <GridItem colSpan={6}>I'm coming...</GridItem>
