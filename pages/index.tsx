@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <Box overflowX="hidden">
       <Head>
-        <title>Krowdee | Welcome</title>
+        <title>Welcome | Krowdee!</title>
       </Head>
       <Container maxW={{ base: "370px", sm: "container.lg" }}>
         <Box textAlign="right" pt={{ base: "4", sm: "3" }}>

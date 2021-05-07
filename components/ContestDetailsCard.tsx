@@ -1,4 +1,3 @@
-import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Flex, Heading, HStack, Stack, Text } from "@chakra-ui/layout";
 import { FC } from "react";
 import { RiCoinFill } from "react-icons/ri";

@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading } from "@chakra-ui/layout";
+import { Box, Container, Flex, Heading, Text } from "@chakra-ui/layout";
 import { Select } from "@chakra-ui/select";
 import Head from "next/head";
 import ContestPaper from "../../components/ContestPaper";
@@ -8,19 +8,25 @@ const records = () => {
   return (
     <Box>
       <Head>
-        <title>Krowdee | Records</title>
+        <title>Records | Krowdee!</title>
       </Head>
       <DashNav />
       <Container maxW="container.lg">
-        <Flex align="center" w="220px" mt={6}>
-          <Heading fontSize="24px" mr="2">
+        <Flex align="center" w="200px" mt={6}>
+          <Heading fontSize="24px" mr={2}>
             Records
           </Heading>
-          <Select size="sm" borderRadius="5px" variant="filled">
+
+          <Select size="xs" borderRadius="8px" variant="filled">
             <option value="hosted">Hosted</option>
             <option value="joined">Joined</option>
+            <option value="open">Open</option>
+            <option value="close">Close</option>
           </Select>
         </Flex>
+        <Box textAlign="center" mt={2} mb={3}>
+          <Text fontSize="10px"> Records disappears in 24hrs!</Text>
+        </Box>
         <ContestPaper />
       </Container>
     </Box>

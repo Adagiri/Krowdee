@@ -1,6 +1,5 @@
-import { Avatar } from "@chakra-ui/avatar";
 import { Button, IconButton } from "@chakra-ui/button";
-import { useColorMode } from "@chakra-ui/color-mode";
+import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import { Badge, Box, Container, Flex, Text } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
 import {
@@ -11,15 +10,24 @@ import {
   MenuItem,
   MenuList,
 } from "@chakra-ui/menu";
+import { useRouter } from "next/router";
 import Link from "next/link";
-import { GiTrophyCup } from "react-icons/gi";
-import { IoNotifications, IoNotificationsOutline } from "react-icons/io5";
-import { RiMoreFill } from "react-icons/ri";
+import { IoNotifications } from "react-icons/io5";
+import {
+  RiDashboardLine,
+  RiMoonLine,
+  RiMoreFill,
+  RiPencilLine,
+  RiSunLine,
+  RiTrophyFill,
+  RiUser6Line,
+} from "react-icons/ri";
 
 const DashNav = () => {
   const [xsAndUp] = useMediaQuery("(min-width: 330px)");
   const [smAndUp] = useMediaQuery("(min-width: 479px)");
   const { colorMode, toggleColorMode } = useColorMode();
+  const router = useRouter();
 
   return (
     <Box w="100%" h={{ base: "7vh", sm: "8vh" }} d="flex" alignItems="center">
@@ -27,13 +35,14 @@ const DashNav = () => {
         <Flex justify="space-between" align="center">
           <Box>
             <Text
-              fontSize={{ base: "16px", sm: "inherit" }}
+              fontSize={{ base: "13px", sm: "inherit" }}
               fontWeight="semibold"
             >
               AbdulAzeez
               <Badge
                 ml={1.5}
                 variant="solid"
+                fontSize={{ base: "smaller", sm: "12px" }}
                 borderRadius="md"
                 colorScheme="purple"
               >
@@ -42,41 +51,48 @@ const DashNav = () => {
             </Text>
           </Box>
           <Flex align="center">
-            {smAndUp ? (
-              <Button
-                variant="ghost"
-                colorScheme="brand"
-                size="sm"
-                leftIcon={<GiTrophyCup size="18px" />}
-              >
-                Leaderboard
-              </Button>
-            ) : (
-              <IconButton
-                size="xs"
-                variant="ghost"
-                aria-label="more-icon"
-                icon={<GiTrophyCup size="16px" />}
-              />
-            )}
-            {/* <Avatar
-              mx={{ base: "8px", md: "12px" }}
-              size="xs"
-              src="../public/images/profile.jpg"
-            /> */}
+            <Button
+              variant="ghost"
+              colorScheme="brand"
+              as={smAndUp ? Button : IconButton}
+              size={smAndUp ? "sm" : "xs"}
+              px={{ base: 0, sm: "12px" }}
+              aria-label={smAndUp ? null : "trophy"}
+              icon={
+                smAndUp ? null : (
+                  <RiTrophyFill size={smAndUp ? "20px" : "18px"} />
+                )
+              }
+              leftIcon={
+                smAndUp ? (
+                  <RiTrophyFill size={smAndUp ? "20px" : "18px"} />
+                ) : null
+              }
+            >
+              {smAndUp ? "Leaderboard" : null}
+            </Button>
+
             <Menu isLazy>
               <MenuButton
                 size="xs"
                 as={IconButton}
                 variant="ghost"
                 aria-label="notification-icon"
-                mx={3}
-                icon={<IoNotifications size="20px" />}
+                mx={{ base: 2, sm: 3 }}
+                icon={<IoNotifications size={smAndUp ? "20px" : "18px"} />}
               />
               <MenuList>
                 <MenuGroup title="Notifications">
                   <MenuDivider />
                   <MenuItem fontSize="xs">You earned 20 points!</MenuItem>
+                  <MenuDivider />
+                  <Text
+                    fontSize="11px"
+                    px="3"
+                    color={useColorModeValue("gray.400", "gray.400")}
+                  >
+                    Notification disappears after 24hrs!
+                  </Text>
                 </MenuGroup>
               </MenuList>
             </Menu>
@@ -87,21 +103,40 @@ const DashNav = () => {
                 variant="ghost"
                 size="xs"
                 aria-label="more-icon"
-                icon={<RiMoreFill size="20px" />}
+                icon={<RiMoreFill size={smAndUp ? "20px" : "18px"} />}
               />
               <MenuList>
                 <Link href="/app">
-                  <MenuItem fontSize="14px">Dashboard</MenuItem>
+                  <MenuItem
+                    icon={<RiDashboardLine size="17px" />}
+                    fontSize="14px"
+                  >
+                    Dashboard
+                  </MenuItem>
                 </Link>
                 <Link href="/app/records">
-                  <MenuItem fontSize="14px">Records</MenuItem>
+                  <MenuItem icon={<RiPencilLine size="18px" />} fontSize="14px">
+                    Records
+                  </MenuItem>
                 </Link>
                 <Link href="/app/me">
-                  <MenuItem fontSize="14px">Profile</MenuItem>
+                  <MenuItem icon={<RiUser6Line size="18px" />} fontSize="14px">
+                    Profile
+                  </MenuItem>
                 </Link>
-                <MenuItem fontSize="14px" onClick={toggleColorMode}>
+                <MenuItem
+                  icon={
+                    colorMode === "light" ? (
+                      <RiMoonLine size="18px" />
+                    ) : (
+                      <RiSunLine size="18px" />
+                    )
+                  }
+                  fontSize="14px"
+                  onClick={toggleColorMode}
+                >
                   {" "}
-                  {colorMode === "dark" ? "Light Mode" : "Dark Mode"}{" "}
+                  {colorMode === "light" ? "Dark Mode" : "Light Mode"}{" "}
                 </MenuItem>
               </MenuList>
             </Menu>

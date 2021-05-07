@@ -10,7 +10,7 @@ const Join = () => {
   return (
     <div>
       <Head>
-        <title>Join | Krowdee </title>
+        <title>Join | Krowdee! </title>
       </Head>
       <Container maxW={{ base: "340px", sm: "container.lg" }}>
         <Box textAlign="right" pt={{ base: "4", sm: "3" }}>

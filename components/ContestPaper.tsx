@@ -5,9 +5,8 @@ const ContestPaper = () => {
   return (
     <Box
       p={3}
-      mt={3}
       h="490px"
-      borderRadius="sm"
+      borderRadius="md"
       overflowY="scroll"
       bg={useColorModeValue("gray.50", "gray.900")}
     >

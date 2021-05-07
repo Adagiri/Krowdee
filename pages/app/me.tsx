@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client";
 import { Avatar } from "@chakra-ui/avatar";
-import { IconButton } from "@chakra-ui/button";
+import { Button, IconButton } from "@chakra-ui/button";
 import {
   Badge,
   Box,
@@ -13,19 +13,24 @@ import {
 } from "@chakra-ui/layout";
 import DashNav from "../../components/DashNav";
 import { RiEditCircleLine, RiQuestionFill } from "react-icons/ri";
-import { IoCreate } from "react-icons/io5";
 import { GiTrophyCup } from "react-icons/gi";
-import { MdSpeaker } from "react-icons/md";
+import { MdSpeaker, MdUpdate } from "react-icons/md";
 import { chakra, useColorMode, useColorModeValue } from "@chakra-ui/system";
 import ContestDetailsCard from "../../components/ContestDetailsCard";
 import { useDisclosure } from "@chakra-ui/hooks";
 import ContestModal from "../../components/ContestModal";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
-import { Input } from "@chakra-ui/input";
+import { Input, InputGroup } from "@chakra-ui/input";
 import { Textarea } from "@chakra-ui/textarea";
 import { Progress } from "@chakra-ui/progress";
 import Head from "next/head";
 import MotionBox from "../../components/MotionBox";
+import {
+  ModalBody,
+  ModalCloseButton,
+  ModalFooter,
+  ModalHeader,
+} from "@chakra-ui/modal";
 
 const Me = () => {
   const { colorMode } = useColorMode();
@@ -34,7 +39,7 @@ const Me = () => {
   return (
     <Box>
       <Head>
-        <title>Krowdee | Profile</title>
+        <title>Profile | Krowdee!</title>
       </Head>
       <DashNav />
       <Container maxW="container.lg">
@@ -63,36 +68,72 @@ const Me = () => {
             borderRadius="md"
           >
             <Box textAlign="right">
-              <IconButton
+              <Button
                 aria-label="edit"
                 size="xs"
                 onClick={onOpen}
-                icon={<RiEditCircleLine size="16px" />}
-              />
+                leftIcon={<RiEditCircleLine size="16px" />}
+              >
+                Edit profile
+              </Button>
 
               {/* Custom Modal */}
               <ContestModal
-                hasCloseButton={true}
-                hasFooter={true}
                 onClose={onClose}
                 closeOnOverlayClick={false}
                 motionPreset="scale"
                 isOpen={isOpen}
-                modalHeader="Edit Profile"
               >
-                <FormControl>
-                  <FormLabel fontSize="14px">Username</FormLabel>
-                  <Input fontSize="14px" placeholder="Username" />
-                </FormControl>
+                <ModalHeader> Edit Profile </ModalHeader>
+                <ModalCloseButton size="sm" />
+                <ModalBody pb={6}>
+                  <FormControl>
+                    <FormLabel fontSize="12px">Username</FormLabel>
+                    <Input
+                      fontSize="12px"
+                      borderRadius="md"
+                      size="sm"
+                      placeholder="Username"
+                    />
+                  </FormControl>
 
-                <FormControl mt={4}>
-                  <FormLabel fontSize="14px">About Me</FormLabel>
-                  <Textarea fontSize="14px" placeholder="About me" />
-                </FormControl>
+                  <FormControl mt={4}>
+                    <FormLabel fontSize="12px">About Me</FormLabel>
+                    <Textarea
+                      size="sm"
+                      borderRadius="md"
+                      fontSize="12px"
+                      placeholder="About me"
+                    />
+                  </FormControl>
+                  <FormControl mt={4}>
+                    <FormLabel fontSize="12px">Update avatar</FormLabel>
+                    <InputGroup>
+                      <Input
+                        height="80px"
+                        type="file"
+                        fontSize="12px"
+                        textAlign="center"
+                        py={3}
+                        placeholder="Click here to upload an image if you've got one"
+                        size="lg"
+                      />
+                    </InputGroup>
+                  </FormControl>
+                </ModalBody>
+                <ModalFooter>
+                  <Button
+                    leftIcon={<MdUpdate size="20px" />}
+                    colorScheme="brand"
+                    size="sm"
+                  >
+                    Update
+                  </Button>
+                </ModalFooter>
               </ContestModal>
             </Box>
-            <Box d="flex" justifyContent="center">
-              <Avatar src="../pubic/images/profile.jpg" size="2xl" />
+            <Box d="flex" mt={4} justifyContent="center">
+              <Avatar src="../pubic/images/profile.jpg" size="lg" />
             </Box>
             <Box mb={6} mt={3} textAlign="center">
               <Heading fontSize="lg">Olanrewaju AbdulAzeez</Heading>
@@ -127,6 +168,8 @@ const Me = () => {
                 <Progress
                   borderRadius="md"
                   size="sm"
+                  width="200px"
+                  margin="0 auto"
                   hasStripe
                   colorScheme="purple"
                   value={64}
