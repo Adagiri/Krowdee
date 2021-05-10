@@ -12,12 +12,12 @@ const records = () => {
       </Head>
       <DashNav />
       <Container maxW="container.lg">
-        <Flex align="center" w="200px" mt={6}>
+        <Flex align="center" w="230px" mt={6}>
           <Heading fontSize="24px" mr={2}>
             Records
           </Heading>
 
-          <Select size="xs" borderRadius="8px" variant="filled">
+          <Select size="sm" borderRadius="4px" variant="filled">
             <option value="hosted">Hosted</option>
             <option value="joined">Joined</option>
             <option value="open">Open</option>
@@ -27,7 +27,11 @@ const records = () => {
         <Box textAlign="center" mt={2} mb={3}>
           <Text fontSize="10px"> Records disappears in 24hrs!</Text>
         </Box>
-        <ContestPaper />
+        <ContestPaper>
+          <Text fontSize="xs" color="gray.400">
+            create contest and see magic
+          </Text>
+        </ContestPaper>
       </Container>
     </Box>
   );

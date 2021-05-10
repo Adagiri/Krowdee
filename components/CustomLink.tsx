@@ -18,7 +18,9 @@ const CustomLink: FC<LinkProps> = ({
 }) => {
   return (
     <NextLink passHref href={href} locale={locale} prefetch={prefetch}>
-      <ChakraLink {...rest}>{children}</ChakraLink>
+      <ChakraLink textDecoration="none" {...rest}>
+        {children}
+      </ChakraLink>
     </NextLink>
   );
 };

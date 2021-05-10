@@ -11,7 +11,7 @@ import {
 import { useDisclosure } from "@chakra-ui/hooks";
 import { Button } from "@chakra-ui/button";
 import { useColorModeValue } from "@chakra-ui/color-mode";
-import { useMediaQuery } from "@chakra-ui/media-query";
+import { useBreakpointValue, useMediaQuery } from "@chakra-ui/media-query";
 
 type Props = {
   drawerHeader: string;
@@ -43,10 +43,12 @@ const CustomDrawer: FC<Props> = ({
 }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [smAndUp] = useMediaQuery("(min-width: 479px)");
+  const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
+
   return (
     <Box>
       <Button
-        size={smAndUp ? "sm" : "xs"}
+        size={buttonSize}
         cursor="pointer"
         variant={buttonVariant}
         onClick={onOpen}

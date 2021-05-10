@@ -1,8 +1,7 @@
 import Head from "next/head";
 import { Box, Container, Heading, Text } from "@chakra-ui/layout";
 import ThemeToggle from "../components/ThemeToggle";
-import { chakra, IconButton } from "@chakra-ui/react";
-import { RiArrowLeftLine } from "react-icons/ri";
+import { chakra } from "@chakra-ui/react";
 import MotionBox from "../components/MotionBox";
 import Link from "next/link";
 

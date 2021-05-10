@@ -39,7 +39,7 @@ const Join = () => {
                 alt="logo"
               />
               <Text fontSize="25px" mt={5} fontWeight="bold" textAlign="center">
-                Join a contest!!
+                Join Closed contest!!
               </Text>
             </Box>
 

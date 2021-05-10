@@ -1,7 +1,7 @@
 import { Button, IconButton } from "@chakra-ui/button";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import { Badge, Box, Container, Flex, Text } from "@chakra-ui/layout";
-import { useMediaQuery } from "@chakra-ui/media-query";
+import { useBreakpointValue, useMediaQuery } from "@chakra-ui/media-query";
 import {
   Menu,
   MenuButton,
@@ -22,9 +22,12 @@ import {
   RiTrophyFill,
   RiUser6Line,
 } from "react-icons/ri";
+import { HiOutlinePencilAlt } from "react-icons/hi";
 
 const DashNav = () => {
-  const [xsAndUp] = useMediaQuery("(min-width: 330px)");
+  const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
+  const iconSize = useBreakpointValue({ base: "18px", sm: "20px" });
+  const buttonType = useBreakpointValue({ base: IconButton, sm: Button });
   const [smAndUp] = useMediaQuery("(min-width: 479px)");
   const { colorMode, toggleColorMode } = useColorMode();
   const router = useRouter();
@@ -54,20 +57,12 @@ const DashNav = () => {
             <Button
               variant="ghost"
               colorScheme="brand"
-              as={smAndUp ? Button : IconButton}
-              size={smAndUp ? "sm" : "xs"}
+              as={buttonType}
+              size={buttonSize}
               px={{ base: 0, sm: "12px" }}
-              aria-label={smAndUp ? null : "trophy"}
-              icon={
-                smAndUp ? null : (
-                  <RiTrophyFill size={smAndUp ? "20px" : "18px"} />
-                )
-              }
-              leftIcon={
-                smAndUp ? (
-                  <RiTrophyFill size={smAndUp ? "20px" : "18px"} />
-                ) : null
-              }
+              aria-label={smAndUp ? "trophy" : null}
+              icon={smAndUp ? null : <RiTrophyFill size={iconSize} />}
+              leftIcon={smAndUp ? <RiTrophyFill size={iconSize} /> : null}
             >
               {smAndUp ? "Leaderboard" : null}
             </Button>
@@ -79,7 +74,7 @@ const DashNav = () => {
                 variant="ghost"
                 aria-label="notification-icon"
                 mx={{ base: 2, sm: 3 }}
-                icon={<IoNotifications size={smAndUp ? "20px" : "18px"} />}
+                icon={<IoNotifications size={iconSize} />}
               />
               <MenuList>
                 <MenuGroup title="Notifications">
@@ -103,25 +98,59 @@ const DashNav = () => {
                 variant="ghost"
                 size="xs"
                 aria-label="more-icon"
-                icon={<RiMoreFill size={smAndUp ? "20px" : "18px"} />}
+                icon={<RiMoreFill size={iconSize} />}
               />
               <MenuList>
                 <Link href="/app">
                   <MenuItem
-                    icon={<RiDashboardLine size="17px" />}
+                    icon={<RiDashboardLine size="18px" />}
                     fontSize="14px"
+                    bgColor={
+                      router.pathname === "/app"
+                        ? useColorModeValue("brand.50", "brand.600")
+                        : ""
+                    }
                   >
                     Dashboard
                   </MenuItem>
                 </Link>
                 <Link href="/app/records">
-                  <MenuItem icon={<RiPencilLine size="18px" />} fontSize="14px">
+                  <MenuItem
+                    bgColor={
+                      router.pathname === "/app/records"
+                        ? useColorModeValue("brand.50", "brand.600")
+                        : ""
+                    }
+                    icon={<RiPencilLine size="18px" />}
+                    fontSize="14px"
+                  >
                     Records
                   </MenuItem>
                 </Link>
                 <Link href="/app/me">
-                  <MenuItem icon={<RiUser6Line size="18px" />} fontSize="14px">
+                  <MenuItem
+                    bgColor={
+                      router.pathname === "/app/me"
+                        ? useColorModeValue("brand.50", "brand.600")
+                        : ""
+                    }
+                    icon={<RiUser6Line size="18px" />}
+                    fontSize="14px"
+                  >
                     Profile
+                  </MenuItem>
+                </Link>
+                <Link href="/app/create">
+                  <MenuItem
+                    bgColor={
+                      router.pathname === "/app/me"
+                        ? useColorModeValue("brand.50", "brand.600")
+                        : ""
+                    }
+                    icon={<HiOutlinePencilAlt size="18px" />}
+                    fontSize="14px"
+                  >
+                    Created Contest
                   </MenuItem>
                 </Link>
                 <MenuItem

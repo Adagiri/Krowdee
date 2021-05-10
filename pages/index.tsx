@@ -1,11 +1,9 @@
 import Head from "next/head";
-import Link from "next/link";
-
 import ThemeToggle from "../components/ThemeToggle";
 import MotionBox from "../components/MotionBox";
 import { Button, IconButton } from "@chakra-ui/button";
 import { SiFacebook, SiGithub, SiGoogle, SiTwitter } from "react-icons/si";
-import { useMediaQuery } from "@chakra-ui/media-query";
+import { useBreakpointValue } from "@chakra-ui/media-query";
 import { Image } from "@chakra-ui/image";
 import {
   Box,
@@ -16,11 +14,11 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/layout";
+import Link from "next/link";
 
 export default function Home() {
-  const [xsAndUp] = useMediaQuery("(min-width: 330px)");
-  const [smAndUp] = useMediaQuery("(min-width: 479px)");
-  const [mdAndUp] = useMediaQuery("(min-width: 640px)");
+  const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
+  const textDisplay = useBreakpointValue({ base: "none", sm: "block" });
 
   return (
     <Box overflowX="hidden">
@@ -35,7 +33,7 @@ export default function Home() {
           <MotionBox
             initial={{ opacity: 0 }}
             animate={{
-              transform: "translateY(8px)",
+              y: 8,
               opacity: 1,
             }}
             transition={{
@@ -46,12 +44,7 @@ export default function Home() {
             }}
             textAlign="center"
           >
-            <Heading
-              fontSize="28px"
-              p={xsAndUp ? null : "5px"}
-              fontWeight="bold"
-              color="cyan.700"
-            >
+            <Heading fontSize="28px" fontWeight="bold" color="cyan.700">
               Welcome to Krowdee!
             </Heading>
             <Text fontSize="15px" mt="1" fontWeight="bold">
@@ -152,42 +145,28 @@ export default function Home() {
               fontSize={{ base: "13px", md: "18px" }}
               color="cyan.800"
               ml={{ base: 1, sm: 2 }}
-              d={smAndUp ? "block" : "none"}
+              d={textDisplay}
             >
               Krowdee
             </Text>
           </Box>
-
           <Spacer />
           <Box>
             <Link href="/about">
-              <Button
-                as="a"
-                mr={{ base: 2, sm: 2 }}
-                size={mdAndUp ? "sm" : "xs"}
-                variant="ghost"
-                cursor="pointer"
-              >
+              <Button mr={2} size={buttonSize} variant="ghost" cursor="pointer">
                 About
               </Button>
             </Link>
             <Link href="/donate">
-              <Button
-                as="a"
-                mr={{ base: 2, sm: 2 }}
-                size={mdAndUp ? "sm" : "xs"}
-                variant="ghost"
-                cursor="pointer"
-              >
+              <Button mr={2} size={buttonSize} variant="ghost" cursor="pointer">
                 Donate
               </Button>
             </Link>
 
             <Button
-              mr={{ base: 2, sm: 2 }}
-              size={mdAndUp ? "sm" : "xs"}
+              mr={{ base: 1, sm: 2 }}
+              size={buttonSize}
               variant="ghost"
-              as="a"
               target="blank"
               href="https://github.com/Adagiri/krowdee"
             >
@@ -195,7 +174,7 @@ export default function Home() {
             </Button>
             <IconButton
               aria-label="github-button"
-              size={mdAndUp ? "sm" : "xs"}
+              size={buttonSize}
               icon={<SiGithub />}
               as="a"
               target="blank"

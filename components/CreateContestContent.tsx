@@ -17,6 +17,9 @@ const CreateContestContent = () => {
   return (
     <Box>
       <FormControl mb={3}>
+        <Input placeholder="Give your contest an identifier" fontSize="xs" />
+      </FormControl>
+      <FormControl mb={3}>
         <FormLabel>Add question 01</FormLabel>
         <Input placeholder="Question" fontSize="sm" />
       </FormControl>
@@ -60,8 +63,7 @@ const CreateContestContent = () => {
         <Box>
           <FormControl>
             <InputGroup size="sm" borderRadius="lg">
-              <InputLeftAddon children="a" />
-              <Input placeholder="add answer" />
+              <Input placeholder="type in option" />
               <InputRightAddon px={1}>
                 <IconButton
                   icon={<BsCheckCircle size="15px" />}

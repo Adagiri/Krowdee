@@ -1,0 +1,27 @@
+import { Box, Container, Heading, Text } from "@chakra-ui/layout";
+import ContestPaper from "../../components/ContestPaper";
+import DashNav from "../../components/DashNav";
+import Head from "next/head";
+
+const open = () => {
+  return (
+    <Box>
+      <Head>
+        <title>Open Contest | Krowdee! </title>
+      </Head>
+      <DashNav />
+      <Container maxW="container.lg" mt={4}>
+        <Heading fontSize="24px" mb={5}>
+          Open Contest
+        </Heading>
+        <ContestPaper>
+          <Text fontSize="xs" color="gray.400">
+            create contest and see magic
+          </Text>
+        </ContestPaper>
+      </Container>
+    </Box>
+  );
+};
+
+export default open;

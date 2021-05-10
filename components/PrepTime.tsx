@@ -19,22 +19,18 @@ import {
 } from "@chakra-ui/popover";
 import { Portal } from "@chakra-ui/portal";
 import Head from "next/head";
-import CustomDrawer from "../../components/CustomDrawer";
-import DashNav from "../../components/DashNav";
+import CustomDrawer from "./CustomDrawer";
 
-const host = () => {
+const PrepTime = () => {
   return (
     <Box>
       <Head>
-        <title>Host | Krowdee! </title>
+        <title>Prep | Krowdee! </title>
       </Head>
-      <DashNav />
       <Box height={{ base: null, sm: "90vh" }}>
         <Container maxW="container.md">
-          <Box textAlign="center" mt={3}>
-            <Heading>Prep Time</Heading>
+          <Box textAlign="center" mt={5}>
             <Text>Host: AbdulAzeez</Text>
-
             <Grid templateColumns="repeat(12, 1fr)" gap={3} mt={5}>
               <GridItem colSpan={{ base: 12, sm: 6 }} height="100%">
                 <SimpleGrid columns={2} spacing={3}>
@@ -101,4 +97,4 @@ const host = () => {
   );
 };
 
-export default host;
+export default PrepTime;

@@ -1,7 +1,7 @@
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Center, Text } from "@chakra-ui/layout";
 
-const ContestPaper = () => {
+const ContestPaper = ({ children }) => {
   return (
     <Box
       p={3}
@@ -11,9 +11,7 @@ const ContestPaper = () => {
       bg={useColorModeValue("gray.50", "gray.900")}
     >
       <Center w="100%" h="100%">
-        <Text fontSize="xs" color="gray.400">
-          create contest and see magic
-        </Text>
+        {children}
       </Center>
     </Box>
   );

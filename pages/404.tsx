@@ -1,12 +1,14 @@
 import { Box, Center, Container, Heading, Text } from "@chakra-ui/layout";
 import Head from "next/head";
-import { Image } from "@chakra-ui/image";
+import Image from "next/image";
 import { Button } from "@chakra-ui/button";
 import Link from "next/link";
-
 import MotionBox from "../components/MotionBox";
+import { useBreakpointValue } from "@chakra-ui/media-query";
 
 const ErrorPage: React.FC = () => {
+  const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
+
   return (
     <div>
       <Head>
@@ -30,15 +32,26 @@ const ErrorPage: React.FC = () => {
           >
             <Box textAlign="center">
               <Box m="0 auto" w="150px" mb={5}>
-                <Image src="/images/sad.svg" alt="Sad Svg" />
+                <Image
+                  width="150px"
+                  height="150px"
+                  src="/images/sad.svg"
+                  alt="Sad Svg"
+                />
               </Box>
-              <Heading fontSize="30px">Page not Found!!!</Heading>
+              <Heading fontSize={{ base: "22px", sm: "30px" }}>
+                Page not Found!!!
+              </Heading>
               <Text>Lost in space??</Text>
               <Box mt={3}>
-                <Button size="sm" variant="solid" colorScheme="brand">
-                  <Link href="/">
-                    <a>Take me home</a>
-                  </Link>
+                <Button
+                  as={Link}
+                  href="/"
+                  size={buttonSize}
+                  variant="solid"
+                  colorScheme="brand"
+                >
+                  <a>Take me home</a>
                 </Button>
               </Box>
             </Box>

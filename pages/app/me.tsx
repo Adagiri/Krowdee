@@ -126,6 +126,7 @@ const Me = () => {
                     leftIcon={<MdUpdate size="20px" />}
                     colorScheme="brand"
                     size="sm"
+                    fontSize="sm"
                   >
                     Update
                   </Button>
