@@ -1,19 +1,19 @@
-import { Button } from "@chakra-ui/button"
-import { Box, Spacer, Stack, Text } from "@chakra-ui/layout"
-import { Avatar } from "@chakra-ui/avatar"
-import { useMediaQuery } from "@chakra-ui/media-query"
-import MotionBox from "./MotionBox"
+import { Button } from "@chakra-ui/button";
+import { Box, Spacer, Stack, Text } from "@chakra-ui/layout";
+import { Avatar } from "@chakra-ui/avatar";
+import { useMediaQuery } from "@chakra-ui/media-query";
+import MotionBox from "./MotionBox";
 
-type Props = {
-  logo: string
-  donateProvider: string
-  donateContent: string
-  button: string
-  link: string
-  avatarName: string
-}
+type StackProps = {
+  logo: string;
+  donateProvider: string;
+  donateContent: string;
+  button: string;
+  link: string;
+  avatarName: string;
+};
 
-const StackedCard: React.FC<Props> = ({
+const StackedCard: React.FC<StackProps> = ({
   donateProvider,
   logo,
   donateContent,
@@ -21,7 +21,7 @@ const StackedCard: React.FC<Props> = ({
   avatarName,
   link,
 }) => {
-  const [smAndUp] = useMediaQuery("(min-width: 450px)")
+  const [smAndUp] = useMediaQuery("(min-width: 450px)");
 
   return (
     <Stack
@@ -81,7 +81,7 @@ const StackedCard: React.FC<Props> = ({
         </Button>
       </MotionBox>
     </Stack>
-  )
-}
+  );
+};
 
-export default StackedCard
+export default StackedCard;

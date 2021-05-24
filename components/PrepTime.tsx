@@ -1,13 +1,5 @@
 import { Button } from "@chakra-ui/button";
-import {
-  Box,
-  Grid,
-  GridItem,
-  Heading,
-  SimpleGrid,
-  Container,
-  Text,
-} from "@chakra-ui/layout";
+import { Box, Heading, SimpleGrid, Container, Text } from "@chakra-ui/layout";
 import {
   Popover,
   PopoverArrow,
@@ -20,6 +12,7 @@ import {
 import { Portal } from "@chakra-ui/portal";
 import Head from "next/head";
 import CustomDrawer from "./CustomDrawer";
+import SquadSection from "./SquadSection";
 
 const PrepTime = () => {
   return (
@@ -27,16 +20,26 @@ const PrepTime = () => {
       <Head>
         <title>Prep | Krowdee! </title>
       </Head>
-      <Box height={{ base: null, sm: "90vh" }}>
-        <Container maxW="container.md">
+      <Box height={{ base: null, sm: "87vh" }}>
+        <Container maxW="container.lg">
           <Box textAlign="center" mt={5}>
-            <Text>Host: AbdulAzeez</Text>
-            <Grid templateColumns="repeat(12, 1fr)" gap={3} mt={5}>
-              <GridItem colSpan={{ base: 12, sm: 6 }} height="100%">
+            <Text mb={3} fontSize="20px" fontWeight="bold">
+              Host: AbdulAzeez
+            </Text>
+            <Box
+              d="flex"
+              w="100%"
+              flexDir={{ base: "column", sm: "column", md: "row" }}
+              gridGap="3em"
+              mt={5}
+              height="80vh"
+            >
+              <Box w={{ base: "100%", md: "70%" }}>
                 <SimpleGrid columns={2} spacing={3}>
                   <Box>
                     <CustomDrawer
                       isFullWidth
+                      noXsButton={true}
                       buttonColorScheme="brand"
                       drawerSize="xs"
                       hasContainer={false}
@@ -52,6 +55,7 @@ const PrepTime = () => {
                   <Box>
                     <CustomDrawer
                       isFullWidth
+                      noXsButton={true}
                       drawerSize="xs"
                       hasContainer={false}
                       hasCloseButton={true}
@@ -83,13 +87,15 @@ const PrepTime = () => {
                     </Portal>
                   </Popover>
                 </Box>
-                <Box textAlign="center" mt={{ base: 3, sm: 60 }}>
+                <Box textAlign="center" mt={80}>
                   <Text fontSize="20px">Starts in </Text>
                   <Heading fontSize="40px">29:45</Heading>
                 </Box>
-              </GridItem>
-              <GridItem colSpan={6}>I'm coming...</GridItem>
-            </Grid>
+              </Box>
+              <Box w="100%">
+                <SquadSection />
+              </Box>
+            </Box>
           </Box>
         </Container>
       </Box>

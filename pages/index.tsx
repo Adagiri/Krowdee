@@ -1,34 +1,26 @@
 import Head from "next/head";
-import ThemeToggle from "../components/ThemeToggle";
 import MotionBox from "../components/MotionBox";
-import { Button, IconButton } from "@chakra-ui/button";
+import { Button } from "@chakra-ui/button";
 import { SiFacebook, SiGithub, SiGoogle, SiTwitter } from "react-icons/si";
-import { useBreakpointValue } from "@chakra-ui/media-query";
-import { Image } from "@chakra-ui/image";
 import {
   Box,
   Center,
   Container,
   Heading,
   SimpleGrid,
-  Spacer,
   Text,
 } from "@chakra-ui/layout";
 import Link from "next/link";
+import Navbar from "../components/Navbar";
 
-export default function Home() {
-  const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
-  const textDisplay = useBreakpointValue({ base: "none", sm: "block" });
-
+const Home = (): JSX.Element => {
   return (
     <Box overflowX="hidden">
       <Head>
         <title>Welcome | Krowdee!</title>
       </Head>
       <Container maxW={{ base: "370px", sm: "container.lg" }}>
-        <Box textAlign="right" pt={{ base: "4", sm: "3" }}>
-          <ThemeToggle />
-        </Box>
+        <Navbar />
         <Center height="85vh">
           <MotionBox
             initial={{ opacity: 0 }}
@@ -132,57 +124,9 @@ export default function Home() {
             </Box>
           </MotionBox>
         </Center>
-        <Box h="8vh" d="flex" alignItems="center" py={{ base: 0, sm: 2 }}>
-          <Box display="flex" alignItems="center" href="/">
-            <Image
-              boxSize={{ base: "25px", sm: "30px" }}
-              objectFit="cover"
-              src="./images/krowdee-logo.svg"
-              alt="logo"
-            />
-            <Text
-              fontWeight="bold"
-              fontSize={{ base: "13px", md: "18px" }}
-              color="cyan.800"
-              ml={{ base: 1, sm: 2 }}
-              d={textDisplay}
-            >
-              Krowdee
-            </Text>
-          </Box>
-          <Spacer />
-          <Box>
-            <Link href="/about">
-              <Button mr={2} size={buttonSize} variant="ghost" cursor="pointer">
-                About
-              </Button>
-            </Link>
-            <Link href="/donate">
-              <Button mr={2} size={buttonSize} variant="ghost" cursor="pointer">
-                Donate
-              </Button>
-            </Link>
-
-            <Button
-              mr={{ base: 1, sm: 2 }}
-              size={buttonSize}
-              variant="ghost"
-              target="blank"
-              href="https://github.com/Adagiri/krowdee"
-            >
-              Report a bug
-            </Button>
-            <IconButton
-              aria-label="github-button"
-              size={buttonSize}
-              icon={<SiGithub />}
-              as="a"
-              target="blank"
-              href="https://github.com/Adagiri/krowdee/issues"
-            />
-          </Box>
-        </Box>
       </Container>
     </Box>
   );
-}
+};
+
+export default Home;

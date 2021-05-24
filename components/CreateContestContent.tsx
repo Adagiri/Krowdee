@@ -1,4 +1,4 @@
-import { IconButton } from "@chakra-ui/button";
+import { Button, ButtonGroup, IconButton } from "@chakra-ui/button";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import {
   Input,
@@ -6,19 +6,24 @@ import {
   InputLeftAddon,
   InputRightAddon,
 } from "@chakra-ui/input";
-import { Box, SimpleGrid } from "@chakra-ui/layout";
+import { Box, SimpleGrid, Stack } from "@chakra-ui/layout";
 import { chakra } from "@chakra-ui/system";
 import { useState } from "react";
-import { BiMinus, BiPlus } from "react-icons/bi";
+import {
+  BiArrowFromLeft,
+  BiArrowFromRight,
+  BiMinus,
+  BiPlus,
+} from "react-icons/bi";
 import { BsCheckCircle } from "react-icons/bs";
 
 const CreateContestContent = () => {
   const [count, setCount] = useState<number>(0);
   return (
     <Box>
-      <FormControl mb={3}>
+      {/* <FormControl mb={3}>
         <Input placeholder="Give your contest an identifier" fontSize="xs" />
-      </FormControl>
+      </FormControl> */}
       <FormControl mb={3}>
         <FormLabel>Add question 01</FormLabel>
         <Input placeholder="Question" fontSize="sm" />
@@ -73,6 +78,18 @@ const CreateContestContent = () => {
               </InputRightAddon>
             </InputGroup>
           </FormControl>
+        </Box>
+        <Box>
+          <Stack>
+            <ButtonGroup>
+              <Button size="xs" leftIcon={<BiArrowFromRight />}>
+                prev
+              </Button>
+              <Button size="xs" rightIcon={<BiArrowFromLeft />}>
+                next
+              </Button>
+            </ButtonGroup>
+          </Stack>
         </Box>
       </SimpleGrid>
     </Box>

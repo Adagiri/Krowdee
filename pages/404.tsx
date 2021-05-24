@@ -6,7 +6,7 @@ import Link from "next/link";
 import MotionBox from "../components/MotionBox";
 import { useBreakpointValue } from "@chakra-ui/media-query";
 
-const ErrorPage: React.FC = () => {
+const ErrorPage = (): JSX.Element => {
   const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
 
   return (
@@ -19,7 +19,7 @@ const ErrorPage: React.FC = () => {
           <MotionBox
             initial={{ opacity: 0 }}
             animate={{
-              transform: "translateY(8px)",
+              y:8,
               opacity: 1,
             }}
             transition={{

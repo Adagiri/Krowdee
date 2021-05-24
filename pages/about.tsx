@@ -4,20 +4,19 @@ import ThemeToggle from "../components/ThemeToggle";
 import { chakra } from "@chakra-ui/react";
 import MotionBox from "../components/MotionBox";
 import Link from "next/link";
+import Navbar from "../components/Navbar";
 
 const name = "[Your Name]";
 export const siteTitle = "Next.js Sample Website";
 
-export default function Layout() {
+const About = (): JSX.Element => {
   return (
     <Box>
       <Head>
         <title>About | Krowdee! </title>
       </Head>
       <Container maxW={{ base: "370px", sm: "container.lg" }}>
-        <Box textAlign="right" pt={{ base: "4", sm: "3" }}>
-          <ThemeToggle />
-        </Box>
+        <Navbar />
         <MotionBox
           mt={8}
           initial={{ opacity: 0 }}
@@ -83,4 +82,6 @@ export default function Layout() {
       </Container>
     </Box>
   );
-}
+};
+
+export default About;

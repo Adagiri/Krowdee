@@ -16,7 +16,7 @@ const open = () => {
         </Heading>
         <ContestPaper>
           <Text fontSize="xs" color="gray.400">
-            create contest and see magic
+            create contest and see contest
           </Text>
         </ContestPaper>
       </Container>

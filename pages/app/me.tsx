@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client";
 import { Avatar } from "@chakra-ui/avatar";
-import { Button, IconButton } from "@chakra-ui/button";
+import { Button, ButtonGroup, IconButton } from "@chakra-ui/button";
 import {
   Badge,
   Box,
@@ -9,6 +9,7 @@ import {
   Flex,
   Heading,
   SimpleGrid,
+  Stack,
   Text,
 } from "@chakra-ui/layout";
 import DashNav from "../../components/DashNav";
@@ -105,20 +106,6 @@ const Me = () => {
                       fontSize="12px"
                       placeholder="About me"
                     />
-                  </FormControl>
-                  <FormControl mt={4}>
-                    <FormLabel fontSize="12px">Update avatar</FormLabel>
-                    <InputGroup>
-                      <Input
-                        height="80px"
-                        type="file"
-                        fontSize="12px"
-                        textAlign="center"
-                        py={3}
-                        placeholder="Click here to upload an image if you've got one"
-                        size="lg"
-                      />
-                    </InputGroup>
                   </FormControl>
                 </ModalBody>
                 <ModalFooter>

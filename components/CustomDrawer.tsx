@@ -25,6 +25,7 @@ type Props = {
   buttonColorScheme?: string;
   drawerSize: "xs" | "sm" | "md" | "lg" | "xl" | "full";
   isFullWidth: boolean;
+  noXsButton?: boolean;
 };
 
 const CustomDrawer: FC<Props> = ({
@@ -40,10 +41,13 @@ const CustomDrawer: FC<Props> = ({
   drawerSize,
   isFullWidth,
   iconName,
-}) => {
+  noXsButton,
+}): JSX.Element => {
   const { isOpen, onClose, onOpen } = useDisclosure();
-  const [smAndUp] = useMediaQuery("(min-width: 479px)");
-  const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
+  const buttonSize = useBreakpointValue({
+    base: noXsButton ? "sm" : "xs",
+    sm: "sm",
+  });
 
   return (
     <Box>

@@ -1,6 +1,14 @@
 import { Button, IconButton } from "@chakra-ui/button";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
-import { Badge, Box, Container, Flex, Text } from "@chakra-ui/layout";
+import {
+  Badge,
+  Box,
+  Container,
+  Flex,
+  HStack,
+  Stack,
+  Text,
+} from "@chakra-ui/layout";
 import { useBreakpointValue, useMediaQuery } from "@chakra-ui/media-query";
 import {
   Menu,
@@ -12,7 +20,7 @@ import {
 } from "@chakra-ui/menu";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { IoNotifications } from "react-icons/io5";
+import { IoFlower, IoGift, IoNotifications } from "react-icons/io5";
 import {
   RiDashboardLine,
   RiMoonLine,
@@ -23,12 +31,16 @@ import {
   RiUser6Line,
 } from "react-icons/ri";
 import { HiOutlinePencilAlt } from "react-icons/hi";
+import { chakra, useTheme } from "@chakra-ui/system";
 
 const DashNav = () => {
+  const ChakraFlowerIcon = chakra(IoFlower);
+  const ChakraGiftIcon = chakra(IoGift);
   const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
-  const iconSize = useBreakpointValue({ base: "18px", sm: "20px" });
+  const iconSize = useBreakpointValue({ base: "18px", sm: "19px" });
   const buttonType = useBreakpointValue({ base: IconButton, sm: Button });
   const [smAndUp] = useMediaQuery("(min-width: 479px)");
+  const theme = useTheme();
   const { colorMode, toggleColorMode } = useColorMode();
   const router = useRouter();
 
@@ -74,15 +86,38 @@ const DashNav = () => {
                 variant="ghost"
                 aria-label="notification-icon"
                 mx={{ base: 2, sm: 3 }}
-                icon={<IoNotifications size={iconSize} />}
+                icon={<IoNotifications size="18px" />}
               />
               <MenuList>
                 <MenuGroup title="Notifications">
                   <MenuDivider />
-                  <MenuItem fontSize="xs">You earned 20 points!</MenuItem>
+                  <MenuItem fontSize="xs">
+                    <HStack spacing={1.5} align="center">
+                      <ChakraGiftIcon
+                        size="15px"
+                        color={useColorModeValue("brand.400", "brand.300")}
+                      />
+                      <span>
+                        You earned{" "}
+                        <chakra.span fontWeight="bold">20 points!</chakra.span>{" "}
+                      </span>
+                    </HStack>
+                  </MenuItem>
+                  <MenuItem fontSize="xs">
+                    <HStack spacing={1.5} align="center">
+                      <ChakraFlowerIcon
+                        size="15px"
+                        color={useColorModeValue("purple.400", "purple.200")}
+                      />
+                      <span>
+                        You've moved to{" "}
+                        <chakra.span fontWeight="bold">Senior!</chakra.span>{" "}
+                      </span>
+                    </HStack>
+                  </MenuItem>
                   <MenuDivider />
                   <Text
-                    fontSize="11px"
+                    fontSize="10px"
                     px="3"
                     color={useColorModeValue("gray.400", "gray.400")}
                   >
@@ -100,7 +135,7 @@ const DashNav = () => {
                 aria-label="more-icon"
                 icon={<RiMoreFill size={iconSize} />}
               />
-              <MenuList>
+              <MenuList zIndex={2}>
                 <Link href="/app">
                   <MenuItem
                     icon={<RiDashboardLine size="18px" />}
@@ -143,7 +178,7 @@ const DashNav = () => {
                 <Link href="/app/create">
                   <MenuItem
                     bgColor={
-                      router.pathname === "/app/me"
+                      router.pathname === "/app/create"
                         ? useColorModeValue("brand.50", "brand.600")
                         : ""
                     }

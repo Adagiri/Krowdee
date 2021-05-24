@@ -3,21 +3,19 @@ import { Box, Container, Heading, Text, Center } from "@chakra-ui/layout";
 import ThemeToggle from "../components/ThemeToggle";
 import MotionBox from "../components/MotionBox";
 import StackedCard from "../components/StackedCard";
-import { IconButton } from "@chakra-ui/button";
+import Navbar from "../components/Navbar";
 
 const name = "[Your Name]";
 export const siteTitle = "Next.js Sample Website";
 
-export default function Donate() {
+const Donate = (): JSX.Element => {
   return (
     <div>
       <Head>
         <title>Donate | Krowdee! </title>
       </Head>
       <Container maxW={{ base: "370px", sm: "container.lg" }}>
-        <Box textAlign="right" pt={{ base: "4", sm: "3" }}>
-          <ThemeToggle />
-        </Box>
+        <Navbar />
         <Center
           height={{ base: "85vh", sm: "75vh" }}
           p={{ base: 0, sm: 3 }}
@@ -74,4 +72,6 @@ export default function Donate() {
       </Container>
     </div>
   );
-}
+};
+
+export default Donate;
