@@ -14,6 +14,11 @@ const About = (): JSX.Element => {
     <Box>
       <Head>
         <title>About | Krowdee! </title>
+        <meta name="description" content="About us | Krowdee!" />
+        <meta property="og:title" content="About Page | Krowdee!" />
+        <meta property="og:description" content="Krowdee | Krowdee!" />
+        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxW={{ base: "370px", sm: "container.lg" }}>
         <Navbar />

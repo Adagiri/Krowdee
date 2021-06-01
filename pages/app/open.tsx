@@ -8,6 +8,11 @@ const open = () => {
     <Box>
       <Head>
         <title>Open Contest | Krowdee! </title>
+        <meta name="description" content="Open Contest Page" />
+        <meta property="og:title" content="Open Contest" />
+        <meta property="og:description" content="Open Contest | Krowdee!" />
+        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <DashNav />
       <Container maxW="container.lg" mt={4}>

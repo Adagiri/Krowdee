@@ -1,9 +1,19 @@
+import { Box } from "@chakra-ui/layout";
+import Head from "next/head";
 
 const Leaderboard = () => {
   return (
-    <div >
-       <h1>Leaderboard page</h1>
-    </div>
+    <Box>
+      <Head>
+        <title>Leaderboard | Krowdee! </title>
+        <meta name="description" content="Leaderboard Page" />
+        <meta property="og:title" content="Leaderboard for Krowdee Stars" />
+        <meta property="og:description" content="Leaderboard | Krowdee!" />
+        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <h1>Leaderboard page</h1>
+    </Box>
   );
 };
 

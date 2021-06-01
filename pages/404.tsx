@@ -13,13 +13,18 @@ const ErrorPage = (): JSX.Element => {
     <div>
       <Head>
         <title>404 | Krowdee! </title>
+        <meta name="description" content="404 Page" />
+        <meta property="og:title" content="404 | Krowdee!" />
+        <meta property="og:description" content="404 Page | Krowdee!" />
+        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxW="container.lg">
         <Center height="100vh" width="100%">
           <MotionBox
             initial={{ opacity: 0 }}
             animate={{
-              y:8,
+              y: 8,
               opacity: 1,
             }}
             transition={{

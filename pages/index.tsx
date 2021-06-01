@@ -18,6 +18,11 @@ const Home = (): JSX.Element => {
     <Box overflowX="hidden">
       <Head>
         <title>Welcome | Krowdee!</title>
+        <meta name="description" content="Welcome to Krowdee" />
+        <meta property="og:title" content="Krowdee HomePage" />
+        <meta property="og:description" content="Krowdee | Krowdee!" />
+        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxW={{ base: "370px", sm: "container.lg" }}>
         <Navbar />

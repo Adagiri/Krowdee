@@ -14,6 +14,11 @@ const Host = () => {
     <Box>
       <Head>
         <title>Host | Krowdee!</title>
+        <meta name="description" content="Host Page" />
+        <meta property="og:title" content="Host Page" />
+        <meta property="og:description" content="Host | Krowdee!" />
+        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <DashNav />
       <Container maxW="container.lg" h="90vh">

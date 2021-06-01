@@ -41,6 +41,12 @@ const Me = () => {
     <Box>
       <Head>
         <title>Profile | Krowdee!</title>
+        {/* We can use something Dynamic Here... Next is mad ooo */}
+        <meta name="description" content="Profile page" />
+        <meta property="og:title" content="Krowdee Profile" />
+        <meta property="og:description" content="Me | Krowdee!" />
+        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <DashNav />
       <Container maxW="container.lg">

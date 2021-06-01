@@ -1,7 +1,7 @@
 import { Box, Center, Container, Text } from "@chakra-ui/layout";
 import ThemeToggle from "../../components/ThemeToggle";
 import MotionBox from "../../components/MotionBox";
-import { Button, IconButton } from "@chakra-ui/button";
+import { Button } from "@chakra-ui/button";
 import { Input } from "@chakra-ui/input";
 import { Image } from "@chakra-ui/image";
 import Head from "next/head";
