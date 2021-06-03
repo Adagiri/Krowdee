@@ -11,7 +11,7 @@ const open = () => {
         <meta name="description" content="Open Contest Page" />
         <meta property="og:title" content="Open Contest" />
         <meta property="og:description" content="Open Contest | Krowdee!" />
-        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <meta property="og:image" content="/images/krowdee.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DashNav />

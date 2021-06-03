@@ -15,8 +15,11 @@ const Donate = (): JSX.Element => {
         <title>Donate | Krowdee! </title>
         <meta name="description" content="Donate to Krowdee!" />
         <meta property="og:title" content="Donate to Krowdee!" />
-        <meta property="og:description" content="Donate | Krowdee!" />
-        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <meta
+          property="og:description"
+          content="Support a nice open source | Krowdee!"
+        />
+        <meta property="og:image" content="/images/krowdee.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxW={{ base: "370px", sm: "container.lg" }}>

@@ -21,7 +21,7 @@ const Home = (): JSX.Element => {
         <meta name="description" content="Welcome to Krowdee" />
         <meta property="og:title" content="Krowdee HomePage" />
         <meta property="og:description" content="Krowdee | Krowdee!" />
-        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <meta property="og:image" content="/images/krowdee.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxW={{ base: "370px", sm: "container.lg" }}>
