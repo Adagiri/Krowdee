@@ -1,5 +1,6 @@
 import { AppProps } from "next/app";
 import "../styles/global.css";
+import "@fontsource/alata";
 import { AnimatePresence } from "framer-motion";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../styles/theme";

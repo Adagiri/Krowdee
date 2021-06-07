@@ -4,8 +4,8 @@ const FontFamily: string = "Sora";
 
 const theme = extendTheme({
   fonts: {
-    body: FontFamily,
-    heading: FontFamily,
+    body: "Alata",
+    heading: "Alata",
     mono: FontFamily,
   },
   colors: {
