@@ -5,18 +5,19 @@ import { Button } from "@chakra-ui/button";
 import Link from "next/link";
 import MotionBox from "../components/MotionBox";
 import { useBreakpointValue } from "@chakra-ui/media-query";
+import { FC } from "react";
 
-const ErrorPage = (): JSX.Element => {
+const ErrorPage: FC = () => {
   const buttonSize = useBreakpointValue({ base: "xs", sm: "sm" });
 
   return (
-    <div>
+    <Box>
       <Head>
         <title>404 | Krowdee! </title>
         <meta name="description" content="404 Page" />
         <meta property="og:title" content="404 | Krowdee!" />
         <meta property="og:description" content="404 Page | Krowdee!" />
-        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <meta property="og:image" content="/images/krowdee.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxW="container.lg">
@@ -49,21 +50,17 @@ const ErrorPage = (): JSX.Element => {
               </Heading>
               <Text>Lost in space??</Text>
               <Box mt={3}>
-                <Button
-                  // as={Link}
-                  href="/"
-                  size={buttonSize}
-                  variant="solid"
-                  colorScheme="brand"
-                >
-                  <a>Take me home</a>
-                </Button>
+                <Link passHref href="/">
+                  <Button size={buttonSize} variant="link" colorScheme="brand">
+                    Take me home
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </MotionBox>
         </Center>
       </Container>
-    </div>
+    </Box>
   );
 };
 

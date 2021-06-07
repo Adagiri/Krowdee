@@ -13,7 +13,7 @@ const records = () => {
         <meta name="description" content="Records Page" />
         <meta property="og:title" content="My Records" />
         <meta property="og:description" content="Records | Krowdee!" />
-        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <meta property="og:image" content="/images/krowdee.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DashNav />

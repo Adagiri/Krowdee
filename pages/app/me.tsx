@@ -45,7 +45,7 @@ const Me = () => {
         <meta name="description" content="Profile page" />
         <meta property="og:title" content="Krowdee Profile" />
         <meta property="og:description" content="Me | Krowdee!" />
-        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <meta property="og:image" content="/images/krowdee.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DashNav />

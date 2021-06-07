@@ -16,8 +16,8 @@ const Host = () => {
         <title>Host | Krowdee!</title>
         <meta name="description" content="Host Page" />
         <meta property="og:title" content="Host Page" />
-        <meta property="og:description" content="Host | Krowdee!" />
-        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <meta property="og:description" content="Host a contest | Krowdee!" />
+        <meta property="og:image" content="/images/krowdee.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DashNav />
