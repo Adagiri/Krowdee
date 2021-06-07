@@ -5,7 +5,6 @@ import { useBoolean } from "@chakra-ui/hooks";
 import Icon from "@chakra-ui/icon";
 import { Input, InputGroup } from "@chakra-ui/input";
 import { Badge, Box, Grid, GridItem } from "@chakra-ui/layout";
-import { useState } from "react";
 import { BiLock, BiLockOpen, BiMicrophone, BiSend } from "react-icons/bi";
 import ChatBox from "./ChatBox";
 
@@ -150,7 +149,7 @@ const SquadSection = (): JSX.Element => {
               size="23px"
               on
               ml={1.5}
-              onClick={setLock.toggle}
+              onClick={() => setLock.toggle()}
               aria-label="mic"
               icon={lock ? <BiLock size="14px" /> : <BiLockOpen size="14px" />}
             />

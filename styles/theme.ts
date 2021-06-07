@@ -3,6 +3,10 @@ import { extendTheme } from "@chakra-ui/react";
 const FontFamily: string = "Sora";
 
 const theme = extendTheme({
+  config: {
+    initialColorMode: "dark",
+    useSystemColorMode: false,
+  },
   fonts: {
     body: FontFamily,
     heading: FontFamily,

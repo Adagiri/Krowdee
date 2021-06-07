@@ -23,7 +23,7 @@ const Dashboard = () => {
         <meta name="description" content="Dashboard Page" />
         <meta property="og:title" content="Dashboard" />
         <meta property="og:description" content="Dashboard Page | Krowdee!" />
-        <meta property="og:image" content="/images/krowdee-logo.svg" />
+        <meta property="og:image" content="/images/krowdee.png" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DashNav />
