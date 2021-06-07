@@ -8,8 +8,8 @@ const theme = extendTheme({
     useSystemColorMode: false,
   },
   fonts: {
-    body: FontFamily,
-    heading: FontFamily,
+    body: "Alata",
+    heading: "Alata",
     mono: FontFamily,
   },
   colors: {
