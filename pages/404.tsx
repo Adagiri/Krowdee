@@ -50,7 +50,7 @@ const ErrorPage = (): JSX.Element => {
               <Text>Lost in space??</Text>
               <Box mt={3}>
                 <Button
-                  as={Link}
+                  // as={Link}
                   href="/"
                   size={buttonSize}
                   variant="solid"
