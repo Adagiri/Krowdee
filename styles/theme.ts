@@ -1,8 +1,14 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, ThemeConfig } from "@chakra-ui/react";
 
 const FontFamily: string = "Sora";
+const config : ThemeConfig = {
+  initialColorMode: "dark",
+  useSystemColorMode: false,
+}
+
 
 const theme = extendTheme({
+  config: config,
   fonts: {
     body: "Alata",
     heading: "Alata",
