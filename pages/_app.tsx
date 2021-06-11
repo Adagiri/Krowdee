@@ -1,10 +1,10 @@
 import { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
+import { ApolloProvider } from "@apollo/client";
+import theme from "../styles/theme";
+import client from "../apollo-client.js";
 import "../styles/global.css";
 import "@fontsource/alata";
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "../styles/theme";
-import { ApolloProvider } from "@apollo/client";
-import client from "../apollo-client.js";
 
 function App({ Component, pageProps }: AppProps) {
   return (
