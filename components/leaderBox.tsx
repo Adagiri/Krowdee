@@ -37,14 +37,12 @@ const LeaderBox = ({name, score, index}: LeaderBoxProps) => {
                 position="absolute"
                 bottom={0}
                 py={5}
-                color="whiteAlpha.900"
             >
                 <VStack 
                     spacing={1} 
                     position="absolute" 
                     top={-50} 
                     transform={position === 1 ? "translateY(-62%)" : "translateY(-50%)"} 
-                    color="blackAlpha.900"
                     alignSelf="center"
                 >
                     {position ===1 && (
@@ -59,6 +57,7 @@ const LeaderBox = ({name, score, index}: LeaderBoxProps) => {
                     align="center" 
                     fontSize={position === 1 ? 50 : position === 2 ? 45 : position === 3 ? 40 : null}
                     fontFamily="sora"
+                    color="whiteAlpha.900"
                 >
                     {position}
                 </Heading >
@@ -68,6 +67,7 @@ const LeaderBox = ({name, score, index}: LeaderBoxProps) => {
                     fontSize="lg" 
                     fontWeight="extrabold"
                     fontFamily="sora"
+                    color="whiteAlpha.900"
                 >
                     {score}
                 </Text>

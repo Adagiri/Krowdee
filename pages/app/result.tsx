@@ -103,7 +103,6 @@ const Result = () => {
                                 bottom={0}
                                 w="100%"
                                 p={2}
-                                bgColor="gray.100"
                             >
                                 <InputGroup>
                                     <Input 
