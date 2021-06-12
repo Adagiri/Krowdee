@@ -1,3 +1,4 @@
+import AuthWrapper from "../../components/AuthWrapper"
 import ClientOnly from "../../components/clientOnly";
 import Dashboard from "../../components/dashboard";
 
@@ -9,4 +10,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default AuthWrapper(App);

@@ -30,9 +30,13 @@ import {
   RiTrophyFill,
   RiUser6Line,
 } from "react-icons/ri";
+import {
+  BiLogOutCircle
+} from "react-icons/bi";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { chakra, useTheme } from "@chakra-ui/system";
-
+import { deleteToken, getUser } from "../helpers/auth";
+const user = getUser();
 const DashNav = () => {
   const ChakraFlowerIcon = chakra(IoFlower);
   const ChakraGiftIcon = chakra(IoGift);
@@ -44,26 +48,22 @@ const DashNav = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const router = useRouter();
 
+ 
+
   return (
     <Box w="100%" h={{ base: "7vh", sm: "8vh" }} d="flex" alignItems="center">
       <Container maxW="container.lg">
         <Flex justify="space-between" align="center">
           <Box>
-            <Text
-              fontSize={{ base: "13px", sm: "inherit" }}
-              fontWeight="semibold"
+            <Badge
+              ml={1.5}
+              p={1.5}
+              fontSize={{ base: "smaller", sm: "12px" }}
+              borderRadius="md"
+              colorScheme="white"
             >
-              AbdulAzeez
-              <Badge
-                ml={1.5}
-                variant="solid"
-                fontSize={{ base: "smaller", sm: "12px" }}
-                borderRadius="md"
-                colorScheme="purple"
-              >
-                Senior
-              </Badge>
-            </Text>
+              {user &&user.name}
+            </Badge>
           </Box>
           <Flex align="center">
             <Button
@@ -186,6 +186,22 @@ const DashNav = () => {
                     fontSize="14px"
                   >
                     Created Contest
+                  </MenuItem>
+                </Link>
+                <Link href="/">
+                  <MenuItem
+                    bgColor={
+                      router.pathname === "/app/create"
+                        ? useColorModeValue("brand.50", "brand.600")
+                        : ""
+                    }
+                    icon={<BiLogOutCircle size="18px" />}
+                    fontSize="14px"
+                    onClick={() => {
+                      deleteToken("ktoken");
+                    }}
+                  >
+                    Logout
                   </MenuItem>
                 </Link>
                 <MenuItem

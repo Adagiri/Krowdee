@@ -1,19 +1,21 @@
+import { Router, useRouter } from "next/router";
 import React from "react";
-import { getCookie } from "../operations/utils";
+import { getToken } from "../helpers/auth";
 import Home from "../pages/index";
 
-
-const token = getCookie("jwt");
+const token = getToken("ktoken");
 
 const withAuth = (Component) => {
+ 
   const Auth = () => {
-
+    
     // if token exists, return component
     if (token) {
       return <Component />;
     }
 
     //if token doesnt exist
+ 
     return <Home />;
   };
 

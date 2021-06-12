@@ -12,8 +12,36 @@ import {
 } from "@chakra-ui/layout";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import {
+  auth,
+  facebookAuthProvider,
+  googleAuthProvider,
+} from "../lib/firebase";
+import { useMutation } from "@apollo/client";
+import { getToken, setToken, setUser } from "../helpers/auth";
+import { LOGIN_WITH_SOCIAL } from "../state/remote/mutations";
+import { useState } from "react";
+import router from "next/router";
+import Router from "next/router";
+
+type Profile = {
+  id: string;
+  name: string;
+};
 
 const Home = (): JSX.Element => {
+  const [providerId, setProviderId] = useState("");
+  const [sid, setSid] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [loginWithSocial, { loading, data, error }] = useMutation(
+    LOGIN_WITH_SOCIAL,
+    { variables: { sid, providerId, name, email } }
+  );
+
+  if (!getToken("ktoken")) {
+    // Router.push("/app");
+  }
   return (
     <Box overflowX="hidden">
       <Head>
@@ -53,7 +81,7 @@ const Home = (): JSX.Element => {
                 columns={{ base: 1, sm: 2 }}
                 spacing={{ base: 3, sm: 5 }}
               >
-                <Box>
+                {/* <Box>
                   <Button
                     as="a"
                     height="50px"
@@ -64,42 +92,107 @@ const Home = (): JSX.Element => {
                   >
                     github
                   </Button>
-                </Box>
+                </Box> */}
                 <Box>
                   <Button
                     as="a"
-                    href={`${process.env.API_URL}/facebook`}
+                    cursor="pointer"
+                    // href={`${process.env.API_URL}/facebook`}
                     height="50px"
                     borderRadius="10px"
                     width={{ base: "280px", sm: "180px" }}
                     leftIcon={<SiFacebook size="18px" />}
                     colorScheme="facebook"
+                    onClick={() => {
+                      auth
+                        .signInWithPopup(facebookAuthProvider)
+                        .then((user) => {
+                          const userProfile: any =
+                            user.additionalUserInfo.profile;
+                          setProviderId("facebook");
+                          setName(userProfile.name);
+                          setSid(userProfile.id);
+                          setEmail(userProfile.email);
+                          //call the apollo mutation function initialised above
+                          loginWithSocial()
+                            .then((data) => {
+                              setToken(
+                                "ktoken",
+                                data.data.loginWithSocial.token
+                              );
+                              setUser(data.data.loginWithSocial.user);
+                              router.push("/app");
+                              //set Token and store user in local storage
+                            })
+                            .catch((error) => {
+                              console.log(error);
+                            });
+                        })
+                        .catch((error) => {
+                          console.error(error);
+                        });
+                    }}
                   >
                     facebook
                   </Button>
                 </Box>
-                <Box>
+                {/* <Box>
                   <Button
                     as="a"
                     height="50px"
-                    href={`${process.env.API_URL}/twitter`}
+                 
                     borderRadius="10px"
                     width={{ base: "280px", sm: "180px" }}
                     leftIcon={<SiTwitter size="18px" />}
                     colorScheme="twitter"
+                    onClick={() => {
+                      auth.signInWithPopup(twitterAuthProvider).then((user) => {
+                        console.log(user);
+                      });
+                    }}
                   >
                     twitter
                   </Button>
-                </Box>
+                </Box> */}
                 <Box>
                   <Button
                     height="50px"
                     as="a"
-                    href={`${process.env.API_URL}/google`}
+                    cursor="pointer"
+                    // href={`${process.env.API_URL}/google`}
                     borderRadius="10px"
                     width={{ base: "280px", sm: "180px" }}
                     leftIcon={<SiGoogle size="18px" />}
                     colorScheme="red"
+                    onClick={() => {
+                      auth
+                        .signInWithPopup(googleAuthProvider)
+                        .then((user) => {
+                          const userProfile: any =
+                            user.additionalUserInfo.profile;
+                          setProviderId("google");
+                          setName(userProfile.name);
+                          setSid(userProfile.id);
+                          setEmail(userProfile.email);
+                          //call the apollo mutation function initialised above
+                          loginWithSocial()
+                            .then((data) => {
+                              setToken(
+                                "ktoken",
+                                data.data.loginWithSocial.token
+                              );
+                              setUser(data.data.loginWithSocial.user);
+                              router.push("/app");
+                              //set Token and store user in local storage
+                            })
+                            .catch((error) => {
+                              console.log(error);
+                            });
+                        })
+                        .catch((error) => {
+                          console.error(error);
+                        });
+                    }}
                   >
                     google
                   </Button>
@@ -110,7 +203,7 @@ const Home = (): JSX.Element => {
                   By logging in you accept our
                 </Text>
                 <Text fontWeight="bold">
-                  <Link href="/app">
+                  <Link href="/privacy-policy">
                     <Button
                       as="a"
                       variant="link"
@@ -125,6 +218,23 @@ const Home = (): JSX.Element => {
                     Terms of service.
                   </Button>
                 </Text>
+              </Box>
+              <Box>
+                <Button
+                  as="a"
+                  mt="2"
+                  height="50px"
+                  cursor="pointer"
+                  borderRadius="10px"
+                  width={{ base: "260px", sm: "160px" }}
+                  // leftIcon={<SiTwitter size="18px" />}
+                  colorScheme="blue"
+                  onClick={() => {
+                    router.push("/app");
+                  }}
+                >
+                  Go Dashboard
+                </Button>
               </Box>
             </Box>
           </MotionBox>

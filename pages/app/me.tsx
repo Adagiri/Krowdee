@@ -32,8 +32,20 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@chakra-ui/modal";
+import { getUser } from "../../helpers/auth";
+import { useEffect } from "react";
 
 const Me = () => {
+  let user
+  useEffect(() => {
+    user = getUser();
+    // return () => {
+    //   cleanup
+    // }
+  }, []);
+
+  console.log(user)
+
   const { colorMode } = useColorMode();
   const { onOpen, isOpen, onClose } = useDisclosure();
 
@@ -130,19 +142,14 @@ const Me = () => {
               <Avatar src="../pubic/images/profile.jpg" size="lg" />
             </Box>
             <Box mb={6} mt={3} textAlign="center">
-              <Heading fontSize="lg">Olanrewaju AbdulAzeez</Heading>
+              <Heading fontSize="lg">{user && user.name}</Heading>
               <Text fontSize="sm">
-                You have <chakra.span fontWeight="bold">400pts</chakra.span>{" "}
+                You have{" "}
+                <chakra.span fontWeight="bold">
+                  {user && user.pts ? user.pts : 0} pts
+                </chakra.span>{" "}
               </Text>
-              <Badge
-                ml={1.5}
-                mb={1}
-                variant="solid"
-                borderRadius="md"
-                colorScheme="purple"
-              >
-                Senior
-              </Badge>
+
               <MotionBox
                 width="300px"
                 m="0 auto"
