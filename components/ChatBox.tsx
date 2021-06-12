@@ -34,7 +34,8 @@ const ChatBox = ({
         gridGap="0.8em"
       >
         <Box
-          p={1.5}
+          px={1.5}
+          py={1}
           borderRadius="7px"
           bg={
             sent
