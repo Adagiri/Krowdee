@@ -1,0 +1,21 @@
+{
+  "name": "test-fella",
+  "version": "beta",
+  "author": "Adagiri Ridwan Ibrahim",
+  "description": "An application for tutors to easily test students on the web",
+  "keywords": [
+    "test",
+    "quiz",
+    "trivia",
+    "exam",
+    "mock"
+  ],
+  "license": "MIT",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "i": "npm install -S"
+  }
+}
